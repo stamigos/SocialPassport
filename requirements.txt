@@ -1,0 +1,6 @@
+Django==1.6
+Pillow==2.7.0
+django-admin-tools==0.5.2
+python-dateutil==1.5
+pytz==2013.7
+wsgiref==0.1.2
