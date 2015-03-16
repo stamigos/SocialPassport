@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+<!--coding: utf-8-->
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<table align="center" cellpadding="4" cellspacing="0" border="1" style="width: 100%; font-size: 14px; font-family : 'Georgia', Times New Roman, Times, serif;">
+<tr>
+       <td rowspan="15"><img src="{{ MEDIA_URL }}{{ student.photo }}" /></td>
+       <td>Прізвище, ім'я, по-батькові</td>
+       <td colspan="2">
+           {{ student.family_name }} {{ student.name }} {{ student.father_name }}
+       </td>
+</tr>
+
+<tr>
+       <td>Взвод</td>
+       <td>{{ student.squad }}</td>
+</tr>
+
+<tr>
+       <td>Дата народження</td>
+       <td>{{ student.birth_date }}</td>
+</tr>
+
+
+<tr>
+<td>Місце народження</td>
+    <td>                       {{  student.birth_address.country }} {{  student.birth_address.city }}
+                               {{  student.birth_address.region }} {{  student.birth_address.district }}
+                               {{  student.birth_address.street }} {{  student.birth_address.house_number }}
+    </td>
+</tr>
+
+<tr>
+<td>Адреса</td>
+<td>                       {{  student.address.country }} {{  student.address.city }}
+                           {{  student.address.region }} {{  student.address.district }}
+                           {{  student.address.street }} {{  student.address.house_number }}</td>
+</tr>
+
+<tr>
+    <td>Номера телефонів</td>
+    <td>{{ student.contacts }}</td>
+</tr>
+
+
+<tr>
+    <td>Факультет</td>
+    <td>{{ student.faculty }}</td>
+</tr>
+
+<tr>
+    <td>Група</td>
+    <td>{{ student.group }}</td>
+</tr>
+
+<tr>
+    <td>Спеціальність</td>
+    <td>{{ student.specialization }}</td>
+</tr>
+
+<tr>
+    <td>Номер залікової книжки</td>
+    <td>{{ student.rb_number }}</td>
+</tr>
+
+
+<tr>
+    <td>Місце роботи</td><td>{{ student.working_place }}</td>
+</tr>
+
+
+<tr>
+    <td>Хоббі</td><td>{{ student.hobbie }}</td>
+</tr>
+
+
+<tr>
+<td>Батько, мати, місце роботи і проживання</td>
+    <td>
+                           Батько: {{ student.father_address.country }} {{ student.father_address.city }}
+                           {{ student.father_address.region }} {{ student.father_address.district }}
+                           {{ student.father_address.street }} {{ student.father_address.house_number }}
+
+                           | Мати: {{ student.mother_address.country }} {{ student.mother_address.city }}
+                           {{ student.mother_address.region }} {{ student.mother_address.district }}
+                           {{ student.mother_address.street }} {{ student.mother_address.house_number }}
+    </td>
+</tr>
+
+<tr>
+    <td>Примітки</td>
+    <td>{{ student.notes }}</td>
+</tr>
+
+</table>
+
+{% endblock %}

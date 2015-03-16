@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+<!--coding: utf-8-->
+{% block header %}
+{% endblock %}
+
+{% block content %}
+    <table align="center" cellpadding="4" cellspacing="0" border="1" style="width: 100%; font-size: 14px; font-family : 'Georgia', Times New Roman, Times, serif;text-align:center;">
+        <tr>
+                    <td><h2>Взводи</h2></td>
+        </tr>
+        <tr>
+                    {% for squad in squad_list %}
+                    <tr><td><h2 style="font-family : 'Georgia', Times New Roman, Times, serif;"><a href="{{ squad.get_absolute_url }}">{{ squad.name }}</a></h2></td></tr>
+                    {% empty %}
+                    <p style="font-family : 'Georgia', Times New Roman, Times, serif;">Немає взводів</p>
+                    {% endfor %}
+        </tr>
+    </table>
+{% endblock %}

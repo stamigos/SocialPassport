@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+<!--coding: utf-8-->
+{% load staticfiles %}
+{% block header %}
+{% endblock %}
+
+{% block content %}
+           <table align="center" cellpadding="4" cellspacing="0" border="1" style="width: auto; font-size: 14px; font-family : 'Georgia', Times New Roman, Times, serif;">
+           <tr>
+               <td valign="top">№ з/п</td>
+               <td valign="top">Фото</td>
+               <td valign="top">П.І.Б.</td>
+               <td valign="top">Факультет, група, спеціальність</td>
+               <td valign="top">Дата народження</td>
+               <td valign="top">Місце народження</td>
+               <td valign="top">Навчався</td>
+               <td valign="top">Місце проживання</td>
+               <td valign="top">Батько, мати, місце роботи і проживання</td>
+               <td valign="top">№ залікової книжки</td>
+               <td valign="top">Місце роботи</td>
+               <td valign="top">Хоббі</td>
+               <td valign="top">Номери телефонів</td>
+               <td valign="top">Примітки</td>
+           </tr>
+               {% for student in squad.student.all %}
+                   <tr>
+                   <td valign="top">
+                       {{ student.pk }}
+                   </td>
+                       <td valign="top">
+                          <img src="{{ MEDIA_URL }}{{ student.photo }}"  />
+                       </td>
+                   <td valign="top">
+                      <a href="{{ student.get_absolute_url }}"><p>
+                            {{ student.family_name }} {{ student.name }} {{ student.father_name }}
+                       </p></a>
+                   </td>
+                   <td valign="top">
+                       <p>
+                           {{ student.faculty }} {{ student.group }} {{ student.specialization }}
+                       </p>
+                   </td>
+                   <td valign="top">
+                       <p>
+                           {{ squad.student.birth_date }}
+                       </p>
+                   </td>
+                   <td valign="top">
+                       <p>
+                           {{  student.birth_address.country }} {{  student.birth_address.city }}
+                           {{  student.birth_address.region }} {{  student.birth_address.district }}
+                           {{  student.birth_address.street }} {{  student.birth_address.house_number }}
+                       </p>
+                   </td>
+                   <td valign="top">
+                       <p>
+                           {{ student.study_place.name }}
+                           {{  student.birth_address.country }} {{  student.birth_address.city }}
+                           {{  student.birth_address.region }} {{  student.birth_address.district }}
+                           {{  student.birth_address.street }} {{  student.birth_address.house_number }}
+                       </p>
+                   </td>
+                       <td valign="top">
+                       <p>
+                           {{  student.address.country }} {{  student.address.city }}
+                           {{  student.address.region }} {{  student.address.district }}
+                           {{  student.address.street }} {{  student.address.house_number }}
+                       </p>
+                       </td>
+                   <td valign="top">
+                       <p>
+                           Батько: {{ student.father_address.country }} {{ student.father_address.city }}
+                           {{ student.father_address.region }} {{ student.father_address.district }}
+                           {{ student.father_address.street }} {{ student.father_address.house_number }}
+                       </p>
+                       <p>
+                           Мати: {{ student.mother_address.country }} {{ student.mother_address.city }}
+                           {{ student.mother_address.region }} {{ student.mother_address.district }}
+                           {{ student.mother_address.street }} {{ student.mother_address.house_number }}
+                       </p>
+                   </td>
+                   <td valign="top">
+                       <p>
+                           {{ student.rb_number }}
+                       </p>
+                   </td>
+                   <td valign="top">
+                       <p>
+                           {{ student.working_place }}
+                       </p>
+                   </td>
+                   <td valign="top">
+                       <p>
+                           {{ student.hobbie }}
+                       </p>
+                   </td>
+                   <td valign="top">
+                       <p>
+                           {{ student.contacts }}
+                       </p>
+                   </td>
+                   <td valign="top">
+                       <p>
+                           {{ student.notes }}
+                       </p>
+                   </td>
+                   </tr>
+               {% endfor %}
+
+                  <!-- <p style="font-family : 'Georgia', Times New Roman, Times, serif;">Немає студентів</p> -->
+
+           </table>
+{% endblock %}
