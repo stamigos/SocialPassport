@@ -4,7 +4,6 @@ from django.db.models import permalink
 from PIL import Image
 
 
-# Create your models here.
 class Address(models.Model):
     """
        Модель, що описує адресу проживання студента
@@ -75,7 +74,6 @@ class Squad(models.Model):
        Модель взводу
     """
     name = models.CharField(max_length=3, verbose_name=u'Взвод')
-    # student = models.ForeignKey(Student, related_name='student_squad', verbose_name=u'Студент')
     student = models.ManyToManyField(Student, related_name='student_squad', verbose_name=u'Студент')
 
     class Meta:
