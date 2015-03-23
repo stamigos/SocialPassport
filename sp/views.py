@@ -18,10 +18,6 @@ class SquadDetailView(DetailView):
     model = Squad
 
 
-#def squad_list_detail(request, template_name, **args):
-#    squad_info = {'squad_list': Squad.objects.all(), 'squad': args}
-#    return render_to_response(template_name, squad_info, context_instance=RequestContext(request))
-
 def squad_list(request, template_name):
     squads = {'squad_list': Squad.objects.all()}
     return render_to_response(template_name, squads, context_instance=RequestContext(request))
@@ -37,9 +33,3 @@ def student_detail(request, template_name, squad_name, student_id):
     student = Student.objects.filter(pk=student_id)
     context = {'squad_name': squad_name, 'student': student[0]}
     return render_to_response(template_name, context, context_instance=RequestContext(request))
-
-#def squad_student_list(request, template_name="sp/student_list.html"):
-#    student_info = {
-#        "student_list": Squad.student.objects.all(),
-#    }
-#    return render_to_response(template_name, student_info, context_instance=RequestContext(request))
